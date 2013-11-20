@@ -38,16 +38,17 @@ class ExactAPI < Grape::API
 	  	params = JSON.parse(request.body.read)
 	  	logger.info params
 	
-	  	# Check for duplicates and check password
+	    # Check for duplicates and check password
 	    if  exists?(params)
+	    	
 	    	begin
-		   User.create(params)
-		   status 200
-		rescue => error
-		   error!(error, 500)
-		end
+				User.create(params)
+				status 200
+			rescue => error
+				error!(error, 500)
+			end
 				
-	    end
+		end
 	
 	  end
 	
