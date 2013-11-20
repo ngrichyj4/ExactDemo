@@ -30,7 +30,7 @@ class ExactAPI < Grape::API
     end
 
     # User routes
-	resource :users do
+    resource :users do
 	  
 	  desc "Create user."
 	  post :create do
@@ -41,13 +41,13 @@ class ExactAPI < Grape::API
 	  	# Check for duplicates and check password
 	    if  exists?(params)
 	    	begin
-				User.create(params)
-				status 200
-			rescue => error
-				error!(error, 500)
-			end
-				
+		   User.create(params)
+		   status 200
+		rescue => error
+		   error!(error, 500)
 		end
+				
+	    end
 	
 	  end
 	
@@ -60,12 +60,14 @@ class ExactAPI < Grape::API
 	  	status 200
 	  end
 	
-	end
+    end
 
 end
 
 class Web < Sinatra::Base
-  get '/' do
-    "Working."
-  end
+  
+   get '/' do
+	"Working."
+   end
+  
 end
