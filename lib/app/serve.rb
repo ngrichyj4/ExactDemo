@@ -41,14 +41,14 @@ class ExactAPI < Grape::API
 	    # Check for duplicates and check password
 	    if  exists?(params)
 	    	
-	    	begin
+	    	        begin
 				User.create(params)
 				status 200
 			rescue => error
 				error!(error, 500)
 			end
 				
-		end
+	     end
 	
 	  end
 	
