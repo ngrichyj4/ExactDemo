@@ -10,9 +10,9 @@ class ExactAPI < Grape::API
       # Logs to console output
       def logger
     	request.logger
-  	  end
+      end
 
-  	  # Check if user is in store
+      # Check if user is in store
       def user
          @user ||= User.authorize!(request)
       end
@@ -25,7 +25,7 @@ class ExactAPI < Grape::API
       def exists?(params)
 		error!('Password empty', 500) if params["password"].empty?
 		true
-	  end
+      end
 
     end
 
@@ -40,7 +40,6 @@ class ExactAPI < Grape::API
 
 	  	# Check for duplicates and check password
 	    if  exists?(params)
-	    	
 	    	begin
 				User.create(params)
 				status 200
