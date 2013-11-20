@@ -37,7 +37,7 @@ class ExactAPI < Grape::API
 		
 	  	params = JSON.parse(request.body.read)
 	  	logger.info params
-
+	
 	  	# Check for duplicates and check password
 	    if  exists?(params)
 	    	begin
@@ -48,9 +48,9 @@ class ExactAPI < Grape::API
 			end
 				
 		end
-
+	
 	  end
-
+	
 	  
 	  desc "Authenticate user."
 	  post :authenticate do 
@@ -59,7 +59,7 @@ class ExactAPI < Grape::API
 	  	authenticate!
 	  	status 200
 	  end
-
+	
 	end
 
 end
